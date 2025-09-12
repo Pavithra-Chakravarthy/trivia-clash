@@ -1,12 +1,41 @@
-# React + Vite
+# Trivia Clash 🎮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Trivia Clash** is a real-time quiz game built with React, TailwindCSS, and Framer Motion.  
+This project was developed as part of the **Smart India Hackathon (SIH)**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Features
 
-## Expanding the ESLint configuration
+- 10-question quiz per game (currently uses a local questions array)
+- Randomly selects questions from a larger pool (20+ questions)
+- 15-second countdown timer per question
+- Score tracking and progress bar
+- Highlights correct/incorrect answers
+- Final score display at the end of the quiz
+- Smooth animations using **Framer Motion**
+- Fully responsive design
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React.js  
+- **Styling:** TailwindCSS  
+- **Animations:** Framer Motion  
+- **Routing:** React Router  
+- **Deployment-ready:** Works with Netlify, Vercel, or any static hosting
+
+---
+
+## ⚡ How to Run Locally
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/trivia-clash.git
+   cd trivia-clash
+2. Install dependencies
+3. Start the development server
+
+LICENSE
+OPEN SOURCE AND FREE TO USE
