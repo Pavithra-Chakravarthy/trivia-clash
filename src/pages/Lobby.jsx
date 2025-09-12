@@ -1,44 +1,66 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Lobby() {
-  const [roomIdInput, setRoomIdInput] = useState('');
+  const [roomId, setRoomId] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const createRoom = () => {
-    // temporary: fake room id
-    const roomId = Math.random().toString(36).slice(2, 8);
-    navigate(`/game/${roomId}`);
+    const id = Math.random().toString(36).slice(2, 8);
+    navigate(`/game/${id}`);
   };
 
   const joinRoom = (e) => {
     e.preventDefault();
-    if (!roomIdInput.trim()) return;
-    navigate(`/game/${roomIdInput.trim()}`);
+    setError("");
+    const trimmed = roomId.trim();
+    if (!trimmed) {
+      setError("Please enter a room ID");
+      return;
+    }
+    navigate(`/game/${trimmed}`);
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-10 bg-white p-6 rounded-xl shadow">
-      <h2 className="text-2xl font-bold mb-4">Lobby</h2>
+    <div className="flex items-center justify-center min-h-[70vh] p-6">
+      <div className="w-full max-w-lg bg-white/5 border border-white/10 rounded-2xl p-6">
+        <h2 className="text-2xl font-semibold mb-2">Game Lobby</h2>
+        <p className="text-sm text-gray-300 mb-4">
+          Create a room or join an existing one.
+        </p>
 
-      <div className="flex gap-3 mb-6">
-        <button onClick={createRoom} className="px-4 py-2 rounded bg-indigo-600 text-white">
-          Create Room
-        </button>
-        <form onSubmit={joinRoom} className="flex gap-2">
-          <input
-            className="border rounded px-3 py-2"
-            placeholder="Enter Room ID"
-            value={roomIdInput}
-            onChange={(e) => setRoomIdInput(e.target.value)}
-          />
-          <button className="px-4 py-2 rounded border">Join</button>
-        </form>
-      </div>
+        <div className="flex flex-col sm:flex-row gap-3 mb-4">
+          <button
+            onClick={createRoom}
+            className="px-4 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white transition"
+          >
+            Create Room
+          </button>
 
-      <div className="text-sm text-gray-600">
-        (Later: this will list active rooms in real time)
+          <form onSubmit={joinRoom} className="flex gap-2 flex-1">
+            <input
+              value={roomId}
+              onChange={(e) => setRoomId(e.target.value)}
+              placeholder="Enter Room ID"
+              className="flex-1 px-4 py-3 rounded-lg bg-white/5 border border-white/10 outline-none focus:border-indigo-400"
+            />
+            <button
+              type="submit"
+              className="px-4 py-3 rounded-lg bg-pink-600 hover:bg-pink-700 text-white transition"
+            >
+              Join
+            </button>
+          </form>
+        </div>
+
+        {error && <div className="text-red-400 text-sm mb-2">{error}</div>}
+
+        <div className="text-xs text-gray-400 mt-4">
+          Coming soon: live room list + player count.
+        </div>
       </div>
     </div>
   );
 }
+

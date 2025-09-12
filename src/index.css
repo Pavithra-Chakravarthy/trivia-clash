@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body, #root { height: 100%; }
+body { @apply font-sans bg-gray-950 text-gray-100; }
+
+/* Smooth selection + scroll */
+::selection { background: rgba(99,102,241,0.35); }
+
+/* A reusable glass card */
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/10;
+}
+
+/* Gradient text helper */
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(90deg, #a78bfa, #f472b6, #f59e0b);
+}
+
+/* Shimmer overlay (used on buttons/cards if needed) */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: '';
+  position: absolute; inset: 0;
+  transform: translateX(-150%);
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.25) 50%, transparent 100%);
+  animation: shine 1.2s linear infinite;
+}
+
+
