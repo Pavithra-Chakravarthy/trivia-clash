@@ -1,11 +1,10 @@
 # Trivia Clash 🎮
 
 **Trivia Clash** is a real-time quiz game built with React, TailwindCSS, and Framer Motion.  
-This project was developed as part of the **Smart India Hackathon (SIH)**.
 
 ---
 
-## 🌟 Features
+🌟 Features
 
 - 10-question quiz per game (currently uses a local questions array)
 - Randomly selects questions from a larger pool (20+ questions)
